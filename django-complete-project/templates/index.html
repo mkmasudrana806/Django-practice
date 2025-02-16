@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- custom style link  -->
+    <link rel="stylesheet" href="{% static 'custom.css' %}" type="text/css" />
+
+    <style>
+    .fruit{
+      border: 1px solid blue;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>this html file is serving from root of project</h1>
+    <h2>I am learning {{course_title|lower}}</h2>
+    <p>current time is {{current_date|date:"F j, Y"}}</p>
+    <h3>My name is: {{user.name}}</h3>
+    <p>My Email address is {{user.email}}</p>
+    <p>Product price is {{product_price|floatformat:2}}</p>
+    <p>Here is the random text: {{random_text|truncatechars:10}}</p>
+    <br />
+    <h1>Here are some fruits as listed below:</h1>
+    <ol>
+      {% for fruit in fruits %}
+      <li>{{fruit}}</li>
+      {% endfor %}
+    </ol>
+
+    <h1>Here are some vegetables as listed below:</h1>
+    <ul>
+      {% for product in products %}
+      <div class="fruit">
+      <p>
+        <span>{{forloop.counter}}.{{product.name}}</span>
+        <br />
+        <span>{{product.price}}</span>
+      </p>
+      </div>
+      {% endfor %}
+  </body>
+</html>
