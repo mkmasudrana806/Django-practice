@@ -9,12 +9,12 @@ def index(request):
     
     fruits = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape",  "pear", "quince", "raspberry", "strawberry", "tangerine", "watermelon"]
     products = [
-        {"name": "Smartphone", "price": 100},
+        {"name": "Smartphone", "price": 700},
         {"name": "Watch", "price": 200},
-        {"name": "Desktop", "price": 300},
+        {"name": "Desktop", "price": 500},
         {"name": "Mac Book Pro", "price": 800},
         {"name": "Product 9", "price": 900},
-        {"name": "Product 10", "price": 1000},
+        {"name": "Product 10", "price": 100},
     ]
     context = {
         "course_title": "Django Course",
@@ -22,12 +22,19 @@ def index(request):
         "user": {
             "name": "Masud Rana",
             "email": "masudrana@gmail.com",
+            "is_name_shown": True,
         },
         "product_price": 199.999999,
         "random_text": "Random text for testing",
         "fruits": fruits,
-        "products": products
+        "products": products,
+        "names": ["Smartphone", "Watch", "Desktop", "Mac Book Pro"],
+         
     }
     
 
     return render(request, "index.html", context)
+
+
+def aboutus(request):
+    return HttpResponse("About us page")
